@@ -49,9 +49,9 @@
 <script>
     function inserir (num)
         {
-        var numero = document.getElementById('resultado').innerHTML;
-        var numero2 = document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML = numero + num;
+        var resultado = document.getElementById('resultado').innerHTML;
+        var resultado2 = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = resultado + num;
 
         if(resultado)
         {
@@ -66,9 +66,9 @@
     }
     function voltar()
     {
-        var resultado = document.getElementById ('resultado').innerHTML;
+        
         document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
-    }
+    }   
  
     function calcular ()
 {
@@ -79,7 +79,8 @@
 }
 else
 {
-    document.getElementById('resultado').innerHTML = "nada..."
+    document.getElementById('resultado').innerHTML;
+    alert("VOCÊ NÃO TEM O QUE CALCULAR, CLIQUE NO 'OK'")
 }
 
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Lagarta Animada 🐛</title>
+
+<style>
+    body {
+        background: linear-gradient(to right, #87CEEB, #e0f7fa);
+        overflow: hidden;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .lagarta {
+        position: absolute;
+        font-size: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: pulo 0.4s infinite alternate;
+    }
+
+    @keyframes pulo {
+        from { transform: translateY(-50%) translateY(0); }
+        to   { transform: translateY(-50%) translateY(-10px); }
+    }
+</style>
+</head>
+
+<body>
+
+<div id="lagarta" class="lagarta">🐛💚✨</div>
+
+<script>
+async function animarLagarta() {
+    const lagarta = document.getElementById("lagarta");
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    let pos = 0;
+    let direcao = 1;
+
+    while (true) {
+        pos += direcao * 5;
+        lagarta.style.left = pos + "px";
+
+        // bate nas bordas e volta
+        if (pos > window.innerWidth - 100) direcao = -1;
+        if (pos < 0) direcao = 1;
+
+        await sleep(30);
+    }
+}
+
+animarLagarta();
+</script>
+
+</body>
+</html>
