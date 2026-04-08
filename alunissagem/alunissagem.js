@@ -1,0 +1,54 @@
+//NOME DO JOGO: jogo da alunissagem
+//AUTOR: theoFs
+//DATA: 08/04/2026
+//VERSÃO 0.1.0
+
+
+/** @type {HTMLCanvasElement} */
+ 
+let canvas = document.querySelector("#jogo");
+let contexto = canvas.getContext("2d");
+
+
+ let moduloLunar ={
+    posicao: {
+        x:100,
+        y:100
+    },
+    largura: 20,
+    altura: 20,
+    cor: "lightgray",
+    velocidade:{
+        x:1,
+        y:2
+    }
+ }
+function desenhar(){
+
+    moduloLunar.posicao.x += moduloLunar.velocidade.x;
+    moduloLunar.posicao.y += moduloLunar.velocidade.y;
+
+
+
+    contexto.clearRect(0, 0, canvas.width, canvas.height);
+    contexto.save();
+    contexto.fillStyle = "#000";
+    contexto.fillRect(0, 0, canvas.width, canvas.height);
+    contexto.restore();
+
+    contexto.save();
+    contexto.beginPath();
+    contexto.translate(moduloLunar.posicao.x, moduloLunar.posicao.y);
+    contexto.rect(moduloLunar.largura * -0.5, moduloLunar.altura *-0.5,
+        moduloLunar.largura, moduloLunar.altura);
+    contexto.fillStyle = moduloLunar.cor;
+    contexto.fill();
+    contexto.closePath();
+    contexto.restore();
+
+    requestAnimationFrame(desenhar);
+    
+}
+ 
+desenhar();
+ 

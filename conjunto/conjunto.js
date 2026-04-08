@@ -1,13 +1,24 @@
 function conjunto(){
-    const letras =new Set();
+    const letras = new Set();
     letras.add("a");
-    letras.add("c");
     letras.add("b");
-
-    console.log(letras[1]);
-
-    console.log(letras.values);
-    console.log(letras.has("a"))
-
+    letras.add("c");
+   
+    console.log (letras.has("g"));
+ 
+// delete() é um metodo para remover um elemento do conjunto
+letras.delete("c");
+console.log(letras);
+ 
+for (const x of letras.values()){
+    console.log(x);
 }
+
+for (const x of letras.keys()){
+    console.log(x);
+}
+ 
+}
+ 
+ 
 conjunto();
